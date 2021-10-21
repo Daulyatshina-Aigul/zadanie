@@ -63,7 +63,7 @@ int main() {
 		}
 	}
 	else {
-		cout << "îøèáêà";
+		cout << "Ã®Å™ÄÃ¡Ä™Å•";
 	}
 	return 0;
 }
