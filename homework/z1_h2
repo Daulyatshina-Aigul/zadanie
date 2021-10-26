@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+int main() {
+	int N, a;
+	cin >> N;
+	int b = 1, c = 1;
+	for (a = 1; a <= N; a++) {
+		a = b + c;
+		b = c;
+		c = a;
+	}
+	cout << a << endl;
+	return 0;
+}
