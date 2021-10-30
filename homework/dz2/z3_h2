@@ -1,0 +1,23 @@
+/*Найдите все пары дружественных чисел, каждое из которых меньше 10000. Используйте функцию,
+которая вычисляет сумму делителей числа.*/
+#include <iostream>
+using namespace std;
+int S(int n) {
+    int sum = 0;
+    for (int i = 1; i < n; i++) {
+        if (n % i == 0) {
+            sum += i;
+        }
+    }
+    return sum;
+}
+int main() {
+    setlocale(LC_ALL, "ru");
+    for (int i = 1; i <= 10000; i++) {
+        int j = S(i);
+        if (j <= i) continue;
+        if (i == S(j) && j <= 10000) {
+            cout << i << " " << j << endl;
+        }
+    }
+}
