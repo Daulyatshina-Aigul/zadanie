@@ -1,0 +1,23 @@
+//Напишите рекурсивную функцию, которая раскладывает число на простые сомножители.
+#include <iostream>
+using namespace std;
+
+int factors(int n) {
+	int d = 2;
+	while (n != 1) {
+		if (n % d == 0) {
+			n /= d;
+			cout << d << "*";
+		}
+		else
+			d++;
+	}cout << 1 << endl;
+	return 0;
+}
+
+int main() {
+	int n,f;
+	cout << "Enter number\n"; cin >> n;
+	f=factors(n);
+	system("pause");
+}
