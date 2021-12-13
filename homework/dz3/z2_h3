@@ -1,0 +1,25 @@
+//Напишите рекурсивную процедуру для перевода числа из двоичной системы счисления в десятичную.
+#include <iostream>
+using namespace std;
+
+int translate(int a)
+{
+	int b = 1; // two to the b power
+	int c = 0;
+	int i = 10; // transition to a new category 
+	while (i <= a)
+	{
+		c += (a % i / (i / 10)) * b;
+		i *= 10;
+		b *= 2;
+	}
+	c += (a % i / (i / 10)) * b;
+	return c;
+}
+int main() {
+	int a;
+	cout << "Enter a number to convert to binary\n"; cin >> a;
+	cout << translate(a);
+	system("pause");
+	return 0;
+}
