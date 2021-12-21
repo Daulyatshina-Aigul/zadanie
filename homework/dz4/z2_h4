@@ -1,1 +1,22 @@
+/*Заполните массив из N элементов случайными целыми числами в диапазоне 1..N так, чтобы в массив обязательно
+вошли все числа от 1 до N(постройте случайную перестановку).*/
 
+#include <iostream>
+using namespace std;
+
+const int n = 5;
+
+int main() {
+	srand(time(0));
+  
+	int a[n];
+  
+	for (int i = 0; i < n; ++i)
+		a[i] = rand()%(5+1);
+    
+	for (int i = 0; i < n; ++i)
+		cout << a[i] << endl;
+
+	system("pause");
+	
+}
