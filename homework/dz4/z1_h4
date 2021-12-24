@@ -1,0 +1,19 @@
+//Заполните массив элементами арифметической прогрессии.Её первый элемент и разность нужно ввести с клавиатуры.
+#include <iostream>
+using namespace std;
+
+const int n = 5;
+
+int main() {
+	int f_e, difference;
+	cout << "Enter first element and difference\n";
+	cin >> f_e >> difference;
+	int mas[n];
+	mas[0] = f_e;
+	for (int i = 1; i < n; ++i)
+		mas[i] = mas [i-1] + difference;
+	for (int i = 0; i < n; ++i)
+			cout << mas[i] << endl;
+	system("pause");
+	return 0;
+}
