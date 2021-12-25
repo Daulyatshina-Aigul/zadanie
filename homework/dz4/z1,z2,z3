@@ -1,0 +1,56 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+
+int z_1() {
+	const int n = 5;
+	int f_e, difference;
+	cout << "Zadanie 1. Enter first element and difference\n";
+	cin >> f_e >> difference;
+	int mas[n];
+	mas[0] = f_e;
+	for (int i = 1; i < n; ++i)
+		mas[i] = mas[i - 1] + difference;
+	for (int i = 0; i < n; ++i)
+		cout << mas[i] << endl;
+	return 0;
+}
+int z_2() {
+	const int n = 5;
+	int b;
+	cout << "Zadanie 2. Enter 5\n";
+	cin >> b;
+	int a[n];
+	for (int i = 0; i < n; ++i)
+		a[i] = rand() % (5 + 1);
+	for (int i = 0; i < n; ++i)
+		cout << a[i] << endl;
+	return 0;
+}
+
+int z_3() {
+	const int n = 5;
+	int c;
+	cout << "Zadanie 3. Enter 5 again.\n";
+	cin >> c;
+	int mas[n];
+	for (int i = 0; i < n; ++i)
+		mas[i] = 1000 + rand() % 1001;
+	for (int i = 0; i < n; ++i)
+		cout << mas[i] << endl;
+	int count = 0;
+	for (int i = 0; i < n; ++i) {
+		if (((mas[i] / 10) % 2) == 0)
+			count++;
+	}cout << count << endl;
+	return 0;
+}
+int main() {
+	srand(time(0));
+	cout << z_1() << endl;
+	cout << z_2() << endl;
+	cout << z_3();
+	system("pause");
+	return 0;
+}
