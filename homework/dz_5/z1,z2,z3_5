@@ -1,0 +1,99 @@
+#include <iostream>
+using namespace std;
+
+void matrix(int**& matr, int a, int b) {
+	for (int i = 0; i < a; i += 1) {
+		matr[i] = new int[b];
+	}
+}
+
+void filling(int**& matr, int a, int b) {
+	for (int i = 0; i < a; i += 1) {
+		for (int j = 0; j < b; j += 1) {
+			matr[i][j] = i + j;
+		}
+	}
+}
+
+void swapping(int**& matr, int a, int row1, int row2) {
+	if (row1 < 0 || row2 < 0 || row1 > a || row2 > a) {
+		cout << "Error" << endl;
+		return;
+	}
+	for (int j = 0; j < a; j += 1) {
+		int tmp = matr[row1][j];
+		matr[row1][j] = matr[row2][j];
+		matr[row2][j] = tmp;
+	}
+}
+
+void matrix_2(int** matr, int a, int b) {
+	for (int i = 0; i < a; i += 1) {
+		for (int j = 0; j < b; j += 1) {
+			cout << matr[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+
+int count_element(int** matr, int a, int b, int c) {
+	int ans = 0;
+	for (int i = 0; i < a; i += 1) {
+		for (int j = 0; j < b; j += 1) {
+			if (matr[i][j] == c) ans += 1;
+		}
+	}
+	return ans;
+}
+
+void sum(int** matr, int a, int b, int*& sums) {
+
+	for (int j = 0; j < b; j += 1) {
+		int sum = 0;
+		for (int i = 0; i < a; i += 1) {
+			sum += matr[i][j];
+		}
+		sums[j] = sum;
+	}
+}
+
+void delete_m(int** matr, int a) {
+	for (int i = 0; i < a; i += 1) {
+		delete[] matr[i];
+	}
+	delete[] matr;
+}
+
+void main() {
+	cout << "Write the number of rows and columns in the matrix\n";
+	int a, b;
+	cin >> b >> a;
+	int** matr = new int* [b];
+	matrix(matr, b, a);
+	filling(matr, b, a);
+	matrix_2(matr, b, a);
+
+	cout << endl;
+	cout << "Zadanie 1. Swap any two lines.\n";
+	cout << "Enter row to swap: ";
+	int i, j;
+	cin >> i >> j;
+	swapping(matr, a, i - 1, j - 1);
+	matrix_2(matr, b, a);
+
+	cout << "Zadanie 2. It determines how many times an element with the value X occurs in an array\n";
+	cout << "Enter value to find: ";
+	int x;
+	cin >> x;
+	cout << "Occurs " << count_element(matr, b, a, x) << " times." << endl;
+	
+	cout << endl << "Zadanie 3. Calculate the sum of the elements of each column of a matrix\n";
+	int* sums = new int[a];
+	sum(matr, b, a, sums);
+	for (int i = 0; i < a; i += 1) {
+		cout << sums[i] << " ";
+	}
+	delete_m(matr, b);
+	delete[] sums;
+	system("pause");
+}
